@@ -36,7 +36,7 @@ function SurveyForm({ course, user, onSubmitSurvey }) {
   };
 
   return (
-    <div>
+    <div className="page-section">
       <h3>Evaluar al docente: {course.teacher} ({course.name})</h3>
       <form onSubmit={handleSubmit}>
         <div>

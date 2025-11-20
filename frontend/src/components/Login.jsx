@@ -56,7 +56,7 @@ function Login({ onLogin }) {
         </div>
         <button type="submit">Ingresar</button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }

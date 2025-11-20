@@ -22,7 +22,7 @@ function Reports({ onBack }) {
   }
 
   return (
-    <div>
+    <div className="page-section">
       <h3>Reportes de Evaluaciones</h3>
       {data.map(report => (
         <div key={report.courseId} style={{ marginBottom: '1em', padding: '0.5em', border: '1px solid #ccc' }}>
