@@ -42,6 +42,10 @@ function SurveyForm({ course, user, onSubmitSurvey, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (course.isSurveyActive === false) {
+      setError('La encuesta de este curso ha sido desactivada.');
+      return;
+    }
     if (!isPeriodValid()) {
       setError('El periodo de evaluación no está activo.');
       return;
@@ -94,6 +98,12 @@ function SurveyForm({ course, user, onSubmitSurvey, onClose }) {
 
         {periodError && (
           <div className="error-message" style={{ marginBottom: '10px' }}>{periodError}</div>
+        )}
+
+        {course.isSurveyActive === false && (
+          <div className="error-message" style={{ marginBottom: '10px' }}>
+            El administrador desactivó temporalmente esta encuesta.
+          </div>
         )}
 
         {error && <div className="error-message" style={{ marginBottom: '10px' }}>{error}</div>}

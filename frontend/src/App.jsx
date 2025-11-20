@@ -3,6 +3,8 @@ import Login from './components/Login';
 import CourseList from './components/CourseList';
 import SurveyForm from './components/SurveyForm';
 import Reports from './components/Reports';
+import AdminDashboard from './components/AdminDashboard';
+import TeacherReport from './components/TeacherReport';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,8 +34,10 @@ function App() {
     setUser(userData);
     if (userData?.role === 'student') {
       setPage('courses');
-    } else {
-      setPage('report');
+    } else if (userData?.role === 'admin') {
+      setPage('admin');
+    } else if (userData?.role === 'professor') {
+      setPage('teacher');
     }
   };
 
@@ -118,6 +122,8 @@ function App() {
             }}
           />
         )}
+      {page === 'admin' && user && renderLayout('report', <AdminDashboard onBack={handleLogout} />)}
+      {page === 'teacher' && user && renderLayout('report', <TeacherReport user={user} onBack={handleLogout} />)}  
     </>
   );
 }

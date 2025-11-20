@@ -22,6 +22,53 @@ const reloadData = () => {
   }
 };
 
+const persistData = () => {
+  try {
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.error('Error al guardar datos:', err);
+  }
+};
+
+const getCoursesIndex = () => {
+  const index = {};
+  data.students.forEach(student => {
+    student.courses.forEach(course => {
+      if (!index[course.id]) {
+        index[course.id] = {
+          id: course.id,
+          name: course.name,
+          teacher: course.teacher,
+          code: course.code,
+          isSurveyActive: course.isSurveyActive !== false,
+          enrolled: 0
+        };
+      }
+      index[course.id].enrolled += 1;
+    });
+  });
+
+  data.professors?.forEach(prof => {
+    prof.courses.forEach(course => {
+      if (!index[course.id]) {
+        index[course.id] = {
+          id: course.id,
+          name: course.name,
+          teacher: prof.name,
+          code: course.code,
+          isSurveyActive: course.isSurveyActive !== false,
+          enrolled: 0
+        };
+      } else if (!index[course.id].teacher) {
+        index[course.id].teacher = prof.name;
+      }
+      index[course.id].isSurveyActive = course.isSurveyActive !== false;
+    });
+  });
+
+  return index;
+};
+
 const isWithinEvaluationPeriod = (period) => {
   if (!period || !period.startDate || !period.endDate) return false;
   const today = new Date();
@@ -43,7 +90,7 @@ app.post('/api/login', (req, res) => {
     if (!student) {
       return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
     }
-    if (student.password !== password) {
+    if (student.dni !== password) {
       return res.status(401).json({ success: false, message: 'DNI incorrecto' });
     }
 
@@ -136,6 +183,60 @@ app.post('/api/period', (req, res) => {
   return res.json({ success: true, evaluationPeriod: updatedPeriod });
 });
 
+// Listar todos los cursos con su estado de encuesta
+app.get('/admin/courses', (req, res) => {
+  reloadData();
+  const courseIndex = getCoursesIndex();
+  const courses = Object.values(courseIndex).map(c => ({
+    id: c.id,
+    name: c.name,
+    teacher: c.teacher,
+    code: c.code,
+    isSurveyActive: c.isSurveyActive,
+    enrolled: c.enrolled
+  }));
+  res.json(courses);
+});
+
+// Activar/desactivar encuestas por curso
+app.post('/admin/course-status', (req, res) => {
+  const { courseId, isActive } = req.body;
+  reloadData();
+
+  if (!courseId) {
+    return res.status(400).json({ success: false, message: 'courseId es obligatorio' });
+  }
+
+  const newStatus = Boolean(isActive);
+  let updated = false;
+
+  data.students.forEach(student => {
+    student.courses.forEach(course => {
+      if (course.id === courseId) {
+        course.isSurveyActive = newStatus;
+        updated = true;
+      }
+    });
+  });
+
+  data.professors?.forEach(prof => {
+    prof.courses.forEach(course => {
+      if (course.id === courseId) {
+        course.isSurveyActive = newStatus;
+        updated = true;
+      }
+    });
+  });
+
+  if (!updated) {
+    return res.status(404).json({ success: false, message: 'Curso no encontrado' });
+  }
+
+  persistData();
+
+  return res.json({ success: true, courseId, isSurveyActive: newStatus });
+});
+
 // Ruta para envío de respuestas de una encuesta docente
 app.post('/api/submit', (req, res) => {
   const { student: studentCode, courseId, answers } = req.body;
@@ -157,6 +258,16 @@ app.post('/api/submit', (req, res) => {
   const requiredQuestions = ['p1', 'p2', 'p3', 'p4'];
   const parsedAnswers = {};
 
+  const coursesIndex = getCoursesIndex();
+  const course = coursesIndex[courseId];
+  if (!course) {
+    return res.status(404).json({ success: false, message: 'Curso no encontrado' });
+  }
+
+  if (course.isSurveyActive === false) {
+    return res.status(403).json({ success: false, message: 'La encuesta para este curso está desactivada' });
+  }
+
   for (const key of requiredQuestions) {
     const value = Number(answers[key]);
     if (!Number.isInteger(value) || value < 1 || value > 5) {
@@ -174,25 +285,16 @@ app.post('/api/submit', (req, res) => {
   // Almacenar la nueva respuesta
   data.surveys.push({ student: studentCode, courseId, answers: { ...parsedAnswers, comment } });
   // Guardar en archivo JSON para persistencia
-  try {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
-  } catch (err) {
-    console.error('Error al guardar datos:', err);
-  }
+  persistData();
   res.json({ success: true, message: 'Encuesta guardada exitosamente' });
 });
 
 // Ruta para obtener reportes agregados de las evaluaciones
 app.get('/api/reports', (req, res) => {
+  reloadData();
+  const courseInfo = getCoursesIndex();
   const summary = {};
-  // Recopilar información de cursos (nombre y profesor) para referencia
-  const courseInfo = {};
-  data.students.forEach(stu => {
-    stu.courses.forEach(course => {
-      courseInfo[course.id] = { name: course.name, teacher: course.teacher };
-    });
-  });
-  // Agregar datos de cada respuesta registrada
+
   data.surveys.forEach(resp => {
     const { courseId: cid, answers } = resp;
     if (!summary[cid]) {
@@ -208,29 +310,94 @@ app.get('/api/reports', (req, res) => {
       summary[cid].comments.push(sanitizedComment);
     }
   });
-  // Calcular promedios por curso y preparar la respuesta de reporte
-  const reportData = Object.keys(summary).map(cid => {
-    const agg = summary[cid];
-    const avg_p1 = agg.sum_p1 / agg.count;
-    const avg_p2 = agg.sum_p2 / agg.count;
-    const avg_p3 = agg.sum_p3 / agg.count;
-    const avg_p4 = agg.sum_p4 / agg.count;
-    const avg_general = (agg.sum_p1 + agg.sum_p2 + agg.sum_p3 + agg.sum_p4) / (agg.count * 4);
+ 
+  const reportData = Object.keys(courseInfo).map(cid => {
+    const agg = summary[cid] || { count: 0, sum_p1: 0, sum_p2: 0, sum_p3: 0, sum_p4: 0, comments: [] };
+    const count = agg.count;
+    const avg_p1 = count ? agg.sum_p1 / count : 0;
+    const avg_p2 = count ? agg.sum_p2 / count : 0;
+    const avg_p3 = count ? agg.sum_p3 / count : 0;
+    const avg_p4 = count ? agg.sum_p4 / count : 0;
+    const avg_general = count ? (agg.sum_p1 + agg.sum_p2 + agg.sum_p3 + agg.sum_p4) / (count * 4) : 0;
+    const course = courseInfo[cid];
     return {
       courseId: cid,
-      courseName: courseInfo[cid] ? courseInfo[cid].name : cid,
-      teacher: courseInfo[cid] ? courseInfo[cid].teacher : "",
-      count: agg.count,
+      courseName: course?.name || cid,
+      teacher: course?.teacher || '',
+      code: course?.code,
+      count,
+      enrolled: course?.enrolled || 0,
+      participationRate: course?.enrolled ? parseFloat(((count / course.enrolled) * 100).toFixed(2)) : 0,
       avg_p1: parseFloat(avg_p1.toFixed(2)),
       avg_p2: parseFloat(avg_p2.toFixed(2)),
       avg_p3: parseFloat(avg_p3.toFixed(2)),
       avg_p4: parseFloat(avg_p4.toFixed(2)),
       avg_general: parseFloat(avg_general.toFixed(2)),
-      comments: agg.comments
+      comments: agg.comments,
+      isSurveyActive: course?.isSurveyActive !== false
     };
   });
   res.json(reportData);
 });
+
+// Reportes filtrados para docentes autenticados
+app.get('/teacher/my-reports', (req, res) => {
+  reloadData();
+  const dni = req.headers['x-teacher-dni'] || req.query.dni;
+  if (!dni) {
+    return res.status(401).json({ success: false, message: 'DNI requerido' });
+  }
+
+  const professor = data.professors.find(p => p.dni === dni);
+  if (!professor) {
+    return res.status(403).json({ success: false, message: 'Docente no autorizado' });
+  }
+
+  const coursesIndex = getCoursesIndex();
+  const allowedCourseIds = new Set(professor.courses.map(c => c.id));
+  const summary = {};
+
+  data.surveys.forEach(resp => {
+    if (!allowedCourseIds.has(resp.courseId)) return;
+    const { courseId: cid, answers } = resp;
+    if (!summary[cid]) {
+      summary[cid] = { count: 0, sum_p1: 0, sum_p2: 0, sum_p3: 0, sum_p4: 0 };
+    }
+    summary[cid].count += 1;
+    summary[cid].sum_p1 += Number(answers.p1) || 0;
+    summary[cid].sum_p2 += Number(answers.p2) || 0;
+    summary[cid].sum_p3 += Number(answers.p3) || 0;
+    summary[cid].sum_p4 += Number(answers.p4) || 0;
+  });
+
+  const reports = Array.from(allowedCourseIds).map(cid => {
+    const course = coursesIndex[cid];
+    const agg = summary[cid] || { count: 0, sum_p1: 0, sum_p2: 0, sum_p3: 0, sum_p4: 0 };
+    const count = agg.count;
+    const avg_p1 = count ? agg.sum_p1 / count : 0;
+    const avg_p2 = count ? agg.sum_p2 / count : 0;
+    const avg_p3 = count ? agg.sum_p3 / count : 0;
+    const avg_p4 = count ? agg.sum_p4 / count : 0;
+    const avg_general = count ? (agg.sum_p1 + agg.sum_p2 + agg.sum_p3 + agg.sum_p4) / (count * 4) : 0;
+    return {
+      courseId: cid,
+      courseName: course?.name || cid,
+      teacher: professor.name,
+      count,
+      enrolled: course?.enrolled || 0,
+      participationRate: course?.enrolled ? parseFloat(((count / course.enrolled) * 100).toFixed(2)) : 0,
+      avg_p1: parseFloat(avg_p1.toFixed(2)),
+      avg_p2: parseFloat(avg_p2.toFixed(2)),
+      avg_p3: parseFloat(avg_p3.toFixed(2)),
+      avg_p4: parseFloat(avg_p4.toFixed(2)),
+      avg_general: parseFloat(avg_general.toFixed(2)),
+      isSurveyActive: course?.isSurveyActive !== false
+    };
+  });
+
+  return res.json(reports);
+});
+
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;

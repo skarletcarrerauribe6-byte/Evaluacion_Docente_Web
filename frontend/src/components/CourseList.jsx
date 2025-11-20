@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CourseList({ user, onLogout, onStartSurvey, onViewReports }) { 
+function CourseList({ user, onLogout, onStartSurvey, onViewReports }) {
   return (
     <div className="content-card">
       <div className="section-header">
@@ -17,13 +17,20 @@ function CourseList({ user, onLogout, onStartSurvey, onViewReports }) {
               <p className="course-meta">{course.code}</p>
               <p className="course-meta">{course.teacher}</p>
               {course.responded && <span className="status-pill">Encuesta enviada</span>}
+              {course.isSurveyActive === false && (
+                <span className="status-pill warning">Encuesta inactiva</span>
+              )}
             </div>
-            <button className="btn primary" onClick={() => onStartSurvey(course)}>
-              Responder
+            <button
+              className="btn primary"
+              disabled={course.isSurveyActive === false || course.responded}
+              onClick={() => onStartSurvey(course)}
+            >
+              {course.responded ? 'Completado' : 'Responder'}
             </button>
           </div>
         ))}
-      </div>  
+      </div>
 
     <div className="action-stack">
         <button className="btn primary" style={{ width: '100%' }} onClick={onViewReports}>

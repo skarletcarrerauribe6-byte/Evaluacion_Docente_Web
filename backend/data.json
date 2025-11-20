@@ -1,453 +1,107 @@
 {
+  "evaluationPeriod": {
+    "startDate": "2024-08-01",
+    "endDate": "2024-12-31",
+    "isActive": true
+  },
   "students": [
     {
-      "code": "2125210044",
+      "code": "20250001",
       "name": "ACOSTA GARCIA, JHOSUE HERCULES",
-      "password": "jhacostag",
+      "dni": "70000001",
       "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" },
-        { "id": "2025-TDLYC-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" }
+        { "id": "2025-SGC-2913", "code": "SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO", "isSurveyActive": true },
+        { "id": "2025-RYCI-2374", "code": "RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR", "isSurveyActive": true },
+        { "id": "2025-PDSI-2876", "code": "PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO", "isSurveyActive": false }
       ]
     },
     {
-      "code": "2115210045",
-      "name": "ANCAJIMA MORON, JAVIER ALDAIR",
-      "password": "jaancajimam",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-IEYF-2714", "name": "INGENIERIA ECONOMICA Y FINANCIERA", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125230013",
-      "name": "ARGOMEDO MELGAREJO, FRANK GLEIDER",
-      "password": "fgargomedom",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" },
-        { "id": "2025-TDLYC-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" }
-      ]
-    },
-    {
-      "code": "2115220105",
-      "name": "CARRANZA VILLANUEVA, JOSE MANUEL",
-      "password": "jmcarranzav",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" }
-      ]
-    },
-    {
-      "code": "2125210106",
+      "code": "20250002",
       "name": "CARRERA URIBE, SKARLET SHANDEY",
-      "password": "sscarrerau",
+      "dni": "70000002",
       "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
+        { "id": "2025-SGC-2913", "code": "SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO", "isSurveyActive": true },
+        { "id": "2025-RYCI-2374", "code": "RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR", "isSurveyActive": true },
+        { "id": "2025-GDC-1177", "code": "GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA", "isSurveyActive": true }
       ]
     },
     {
-      "code": "2125210071",
-      "name": "CCAHUAY ESPIRITU, ANDREAS JULIO CESAR",
-      "password": "ajccahuaye",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220103",
-      "name": "CRUZ VELDEVER, JOSE LUIS",
-      "password": "jlcruzv",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2115220208",
-      "name": "ESPINOZA GARAY, CARLOS JHORDY",
-      "password": "cjespinozag",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" }
-      ]
-    },
-    {
-      "code": "2125220416",
+      "code": "20250003",
       "name": "GOMEZ CARRERA, JORGE ALONSO",
-      "password": "jagomezc",
+      "dni": "70000003",
       "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220336",
-      "name": "GONZALES RAMIREZ, DENIS",
-      "password": "dgonzalesr",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125210053",
-      "name": "HARO SEBASTIAN, JHOSUEL DAVID",
-      "password": "jdharos",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220284",
-      "name": "INFANTE CABRERA, LINDSEY SIDNEY",
-      "password": "lsinfantec",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2115120098",
-      "name": "JARA MARRUFO, CRISTHIAN",
-      "password": "cjaram",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-SDS-1177", "name": "SIMULACIÓN DE SISTEMAS", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" }
-      ]
-    },
-    {
-      "code": "2115210118",
-      "name": "JIMÉNEZ SOTO, CARLOS HUMBERTO",
-      "password": "chjimenezs",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" }
-      ]
-    },
-    {
-      "code": "2125220254",
-      "name": "LUNA OJEDA, GERARDO DAGOBERTO",
-      "password": "gdlunao",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2115120046",
-      "name": "MARCA CALDERON, BRYAN YOSMEL",
-      "password": "bymarcac",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" }
-      ]
-    },
-    {
-      "code": "2125220192",
-      "name": "MARIN MOYANO TEJEDA, ADOLFO SANTIAGO",
-      "password": "asmarinmoyanot",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220038",
-      "name": "MARTINEZ CAÑASACA, EDUARDO DIEGO",
-      "password": "edmartinezc",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125210091",
-      "name": "MEDINA FLORES, LESLIE ALEXA",
-      "password": "lamedinaf",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" },
-        { "id": "2025-TDLYC-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" }
-      ]
-    },
-    {
-      "code": "2125210092",
-      "name": "MENDOZA HILARIO, RENZO PLACIDO",
-      "password": "rpmendozah",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" },
-        { "id": "2025-TDLYC-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" }
-      ]
-    },
-    {
-      "code": "2125220322",
-      "name": "MENDOZA PELAEZ, DIANA",
-      "password": "dmendozap",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125210100",
-      "name": "ORTIZ CASANA, ALBERTO YEREMI",
-      "password": "ayortizc",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125210101",
-      "name": "PACO FERNANDEZ, CESAR ALEXIS",
-      "password": "capacof",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" },
-        { "id": "2025-TDLYC-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" }
-      ]
-    },
-    {
-      "code": "2125220337",
-      "name": "PERALES OBREGÓN, ANGEL GADIEL",
-      "password": "agperaleso",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220040",
-      "name": "RONDON ORTIZ, ANGEL RODRIGO",
-      "password": "arrondono",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220262",
-      "name": "RUBIO QUIRICO, LAISHA LISET",
-      "password": "llrubioq",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220115",
-      "name": "SIGNIFICACIÓN PERALTA, PAOLA YANIRA",
-      "password": "pysignificacionp",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220174",
-      "name": "TRUJILLANO ARENAS, EDWARD ALBERTO",
-      "password": "eatrujillanoa",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
-      ]
-    },
-    {
-      "code": "2125220045",
-      "name": "VICENTE MELGAREJO, VICTOR ANTONIO",
-      "password": "vavicentem",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" },
-        { "id": "2025-TDLYC-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" }
-      ]
-    },
-    {
-      "code": "2125220276",
-      "name": "VILLEGAS TANTARICO, JHERIKO JHONAY",
-      "password": "jjvillegast",
-      "courses": [
-        { "id": "2025-SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" },
-        { "id": "2025-RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR" },
-        { "id": "2025-PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELIZ JUAN FRANCISCO" },
-        { "id": "2025-GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA" },
-        { "id": "2025-FYEDPDI-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOYO PEPE" }
+        { "id": "2025-SGC-2913", "code": "SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO", "isSurveyActive": true },
+        { "id": "2025-RYCI-2374", "code": "RYCI-2374", "name": "REDES Y COMUNICACIONES I", "teacher": "VILCHEZ INGA CESAR", "isSurveyActive": true },
+        { "id": "2025-GDC-1177", "code": "GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ REENATY AMANDA", "isSurveyActive": true }
       ]
     }
   ],
   "professors": [
     {
+      "dni": "80000001",
       "name": "ARTEAGA CORTEZ HUMBERTO URBANO",
-      "dni": "2913",
-      "password": "huarteagac",
+      "password": "docente01",
       "courses": [
-        "2025-ADS-2913",
-        "2025-PDS-2913",
-        "2025-SGC-2913"
+        { "id": "2025-SGC-2913", "code": "SGC-2913", "name": "SISTEMA DE GESTION DE CALIDAD", "isSurveyActive": true }
       ]
     },
     {
-      "name": "TORRES ALVARADO SALLY KARINA",
-      "dni": "2912",
-      "password": "sktorresa",
-      "courses": [
-        "2025-TDLYC-2912",
-        "2025-AYODLC-2912",
-        "2025-TDLIC-2912"
-      ]
-    },
-    {
-      "name": "RAMIREZ VELIZ JUAN FRANCISCO",
-      "dni": "2876",
-      "password": "jframirezv",
-      "courses": [
-        "2025-PDSI-2876",
-        "2025-DDSDI-2876",
-        "2025-ADSDI-2876"
-      ]
-    },
-    {
+      "dni": "80000002",
       "name": "VILCHEZ INGA CESAR",
-      "dni": "2374",
-      "password": "cvilchezi",
+      "password": "docente02",
       "courses": [
-        "2025-RDCII-2374",
-        "2025-RYCI-2374",
-        "2025-T-2374"
+        { "id": "2025-RYCI-2374", "code": "RYCI-2374", "name": "REDES Y COMUNICACIONES I", "isSurveyActive": true }
       ]
     },
     {
+      "dni": "80000003",
       "name": "HUATAY ENRIQUEZ REENATY AMANDA",
-      "dni": "1177",
-      "password": "rahuataye",
+      "password": "docente03",
       "courses": [
-        "2025-GDC-1177",
-        "2025-DDS-1177",
-        "2025-SDS-1177"
+        { "id": "2025-GDC-1177", "code": "GDC-1177", "name": "GESTION DEL CONOCIMIENTO", "isSurveyActive": true } 
       ]
     },
     {
-      "name": "ZAPATA VILLAR LOYO PEPE",
-      "dni": "2714",
-      "password": "lpzapatav",
+      "dni": "80000004",
+      "name": "RAMIREZ VELIZ JUAN FRANCISCO",
+      "password": "docente04",
       "courses": [
-        "2025-FYEDPDI-2714",
-        "2025-IEYF-2714",
-        "2025-EDLE-2714"
+        { "id": "2025-PDSI-2876", "code": "PDSI-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "isSurveyActive": false }
       ]
     }
   ],
-  "surveys": [],
   "admins": [
     {
-      "name": "Administrador General",
-      "dni": "99887766",
+      "dni": "99999999",
+      "name": "ADMINISTRADOR GENERAL",
       "password": "admin123"
-    },
-    {
-      "name": "Coordinador Académico",
-      "dni": "88776655",
-      "password": "coord123"
-    },
-    {
-      "name": "Jefe de Sistemas",
-      "dni": "77665544",
-      "password": "sistemas123"
-    },
-    {
-      "name": "Secretaria Académica",
-      "dni": "66554433",
-      "password": "secre123"
-    },
-    {
-      "name": "Supervisor de Calidad",
-      "dni": "55443322",
-      "password": "calidad123"
     }
   ],
-  "evaluationPeriod": {
-    "startDate": "2025-11-01",
-    "endDate": "2025-11-07",
-    "isActive": true
-  }
+  "surveys": [
+    {
+      "student": "20250001",
+      "courseId": "2025-SGC-2913",
+      "answers": { "p1": 5, "p2": 4, "p3": 5, "p4": 4, "comment": "Gran claridad al explicar" }
+    },
+    {
+      "student": "20250002",
+      "courseId": "2025-SGC-2913",
+      "answers": { "p1": 4, "p2": 4, "p3": 4, "p4": 4, "comment": "Buen manejo del curso" }
+    },
+    {
+      "student": "20250003",
+      "courseId": "2025-RYCI-2374",
+      "answers": { "p1": 3, "p2": 4, "p3": 3, "p4": 4, "comment": "Podría mejorar la puntualidad" }
+    },
+    {
+      "student": "20250001",
+      "courseId": "2025-RYCI-2374",
+      "answers": { "p1": 4, "p2": 3, "p3": 4, "p4": 3, "comment": "Clases dinámicas" }
+    },
+    {
+      "student": "20250002",
+      "courseId": "2025-GDC-1177",
+      "answers": { "p1": 5, "p2": 5, "p3": 5, "p4": 5, "comment": "Excelente guía y dominio" }
+    }
+  ]
 }

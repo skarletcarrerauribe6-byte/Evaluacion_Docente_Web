@@ -90,7 +90,7 @@ function Login({ onLogin }) {
           Contraseña
           <input
             className="input"
-            type="password"
+            type={role === 'student' ? 'tel' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder={passwordPlaceholder[role]}

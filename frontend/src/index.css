@@ -270,6 +270,11 @@ body {
   font-size: 0.85rem;
 }
 
+.status-pill.warning {
+  background: #fef3c7;
+  color: #b45309;
+}
+
 .question-card {
   background: #fff;
   border: 1px solid var(--card-border);
