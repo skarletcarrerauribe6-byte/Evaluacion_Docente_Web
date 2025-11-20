@@ -9,7 +9,7 @@ import {
   Tooltip,
   XAxis,
   YAxis
-} from 'https://esm.sh/recharts@2.12.7';
+} from 'recharts';
 
 const TeacherReport = ({ user, onBack }) => {
   const [reports, setReports] = useState([]);

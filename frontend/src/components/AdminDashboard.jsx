@@ -12,7 +12,7 @@ import {
   YAxis,
   Cell,
   ResponsiveContainer
-} from 'https://esm.sh/recharts@2.12.7';
+} from 'recharts';
 
 const COLORS = ['#4f46e5', '#16a34a', '#f59e0b', '#ef4444', '#0ea5e9'];
 
