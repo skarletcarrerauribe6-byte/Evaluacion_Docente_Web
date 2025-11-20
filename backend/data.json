@@ -1,22 +1,309 @@
 {
   "students": [
     {
-      "code": "2021001",
-      "dni": "12345678",
-      "name": "Ana Perez",
+      "code": "2120004501",
+      "dni": "Acosta_01",
+      "name": "Acosta Caceres, Jhousie Hercules",
       "courses": [
-        { "id": "MAT101", "name": "Matem\u00e1tica B\u00e1sica", "teacher": "Juan Perez" },
-        { "id": "FIS101", "name": "F\u00edsica I", "teacher": "Mar\u00eda Garc\u00eda" }
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
       ]
     },
     {
-      "code": "2021002",
-      "dni": "87654321",
-      "name": "Luis Ramirez",
+      "code": "2120004502",
+      "dni": "Ancajima_02",
+      "name": "Ancajima Nobom, Javier Aldair",
       "courses": [
-        { "id": "FIS101", "name": "F\u00edsica I", "teacher": "Mar\u00eda Garc\u00eda" },
-        { "id": "QUI101", "name": "Qu\u00edmica General", "teacher": "Carlos S\u00e1nchez" }
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
       ]
+    },
+    {
+      "code": "2120004503",
+      "dni": "Agromedo_03",
+      "name": "Agromedo Melgarejo, Franks Gilbert",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004504",
+      "dni": "Arteaga_04",
+      "name": "Arteaga Cortez, Humberto Urbano",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004505",
+      "dni": "Caranzas_05",
+      "name": "Caranzas Vallenas, Jose Manuel",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004506",
+      "dni": "Ramirez_06",
+      "name": "Ramirez Solis, Skarlet Shainyg",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004507",
+      "dni": "Diego_07",
+      "name": "Diego Velasquez, Bertha Maganor",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004508",
+      "dni": "Henriquez_08",
+      "name": "Henriquez Huayca, Josue",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004509",
+      "dni": "Medina_09",
+      "name": "Medina Alvarez, Rafael Maycol",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004510",
+      "dni": "Marca_10",
+      "name": "Marca Calderon, Brayan Yosmel",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004511",
+      "dni": "Peco_11",
+      "name": "Peco Badillo, Cesar Alexis",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004512",
+      "dni": "Mendez_12",
+      "name": "Mendez Florian, Frank",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004513",
+      "dni": "Medicho_13",
+      "name": "Medicho Mendoza, Roger",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004514",
+      "dni": "Mendoza_14",
+      "name": "Mendoza Plascencia, Adrian Naun",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004515",
+      "dni": "Mendoza_15",
+      "name": "Mendoza Pae, Diana",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004516",
+      "dni": "Coila_16",
+      "name": "Coila Garcia, Pio Alonso",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004517",
+      "dni": "Yanque_17",
+      "name": "Yanque Trujillo, Paola Trinidad",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004518",
+      "dni": "Trujillo_18",
+      "name": "Trujillo Aliaga, Edward Alberto",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004519",
+      "dni": "Vicente_19",
+      "name": "Vicente Melendez, Victor Antonio",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004520",
+      "dni": "Villegas_20",
+      "name": "Villegas Tantarico, Jhenrico Jhonay",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    },
+    {
+      "code": "2120004521",
+      "dni": "Arteaga_21",
+      "name": "Arteaga Cortez, Humberto Urbano",
+      "courses": [
+        { "id": "2025-SEP809-2912", "name": "TEORIA DE LENGUAJES Y COMPILADORES", "teacher": "TORRES ALVARADO SALLY KARINA" },
+        { "id": "2025-SOP820-2714", "name": "FORMULACION Y EVALUACION DE PROYECTOS DE INVERSION", "teacher": "ZAPATA VILLAR LOY PEE" },
+        { "id": "2025-SOP809-1177", "name": "GESTION DEL CONOCIMIENTO", "teacher": "HUATAY ENRIQUEZ RENATO ANDRE" },
+        { "id": "2025-SOP810-2876", "name": "PROYECTOS DE SISTEMA DE INFORMACIÓN", "teacher": "RAMIREZ VELA JUAN FRANCISCO" },
+        { "id": "2025-SOP811-2374", "name": "REDES DE COMPUTADORAS", "teacher": "VILCHEZ INGA CESAR" },
+        { "id": "2025-SOP812-2913", "name": "SISTEMAS DE GESTION DE CALIDAD", "teacher": "ARTEAGA CORTEZ HUMBERTO URBANO" }
+      ]
+    }
+  ],
+  "professors": [
+    {
+      "name": "TORRES ALVARADO SALLY KARINA",
+      "dni": "43567281",
+      "courses": ["2025-SEP809-2912"]
+    },
+    {
+      "name": "ZAPATA VILLAR LOY PEE",
+      "dni": "76284195",
+      "courses": ["2025-SOP820-2714"]
+    },
+    {
+      "name": "HUATAY ENRIQUEZ RENATO ANDRE",
+      "dni": "15839472",
+      "courses": ["2025-SOP809-1177"]
+    },
+    {
+      "name": "RAMIREZ VELA JUAN FRANCISCO",
+      "dni": "92817534",
+      "courses": ["2025-SOP810-2876"]
+    },
+    {
+      "name": "VILCHEZ INGA CESAR",
+      "dni": "68423159",
+      "courses": ["2025-SOP811-2374"]
+    },
+    {
+      "name": "ARTEAGA CORTEZ HUMBERTO URBANO",
+      "dni": "30759641",
+      "courses": ["2025-SOP812-2913"]
     }
   ],
   "surveys": []
