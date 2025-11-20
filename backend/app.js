@@ -1,37 +1,93 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Cargar datos iniciales (simulando la base de datos)
-let data = JSON.parse(fs.readFileSync('data.json'));
+// Ruta absoluta al archivo de datos para evitar dependencias del directorio de ejecución
+const DATA_FILE = path.join(__dirname, 'data.json');
 
-// Ruta de autenticación de estudiante (login)
-app.post('/api/login', (req, res) => {
-  const { code, dni } = req.body;
-  const student = data.students.find(s => s.code === code && s.dni === dni);
-  if (!student) {
-    return res.status(401).json({ success: false, message: 'Código o DNI incorrecto' });
+// Cargar datos iniciales (simulando la base de datos)
+let data = JSON.parse(fs.readFileSync(DATA_FILE));
+
+// Permite refrescar los datos cuando el archivo JSON se actualiza manualmente
+const reloadData = () => {
+  try {
+    data = JSON.parse(fs.readFileSync(DATA_FILE));
+  } catch (err) {
+    console.error('No se pudo recargar data.json', err);
   }
-  // Construir objeto de respuesta sin datos sensibles y con estado de encuestas por curso
-  const studentData = {
-    code: student.code,
-    name: student.name,
-    courses: student.courses.map(course => {
-      // verificar si este estudiante ya respondió la encuesta de este curso
-      const responded = data.surveys.some(resp => resp.student === student.code && resp.courseId === course.id);
-      return { ...course, responded };
-    })
-  };
-  res.json({ success: true, student: studentData });
+};
+
+// Ruta de autenticación (login) para estudiantes, profesores y administradores
+app.post('/api/login', (req, res) => {
+  const { role = 'student', code, dni, password } = req.body;
+
+  // Siempre usar la versión más reciente del archivo para reflejar reemplazos manuales
+  reloadData();
+
+  if (role === 'student') {
+    const student = data.students.find(s => s.code === code && s.password === password);
+    if (!student) {
+      return res.status(401).json({ success: false, message: 'Código o contraseña incorrecto' });
+    }
+
+    // Construir objeto de respuesta sin datos sensibles y con estado de encuestas por curso
+    const studentData = {
+      role: 'student',
+      code: student.code,
+      name: student.name,
+      courses: student.courses.map(course => {
+        // verificar si este estudiante ya respondió la encuesta de este curso
+        const responded = data.surveys.some(resp => resp.student === student.code && resp.courseId === course.id);
+        return { ...course, responded };
+      })
+    };
+
+    return res.json({ success: true, user: studentData });
+  }
+
+  if (role === 'professor') {
+    const professor = data.professors.find(p => p.dni === dni && p.password === password);
+    if (!professor) {
+      return res.status(401).json({ success: false, message: 'DNI o contraseña incorrecto' });
+    }
+
+    const professorData = {
+      role: 'professor',
+      dni: professor.dni,
+      name: professor.name,
+      courses: professor.courses
+    };
+
+    return res.json({ success: true, user: professorData });
+  }
+
+  if (role === 'admin') {
+    const admin = data.admins?.find(a => a.dni === dni && a.password === password);
+    if (!admin) {
+      return res.status(401).json({ success: false, message: 'DNI o contraseña incorrecto' });
+    }
+
+    const adminData = {
+      role: 'admin',
+      dni: admin.dni,
+      name: admin.name
+    };
+
+    return res.json({ success: true, user: adminData });
+  }
+
+  return res.status(400).json({ success: false, message: 'Rol no soportado' });
 });
 
 // Ruta para envío de respuestas de una encuesta docente
 app.post('/api/submit', (req, res) => {
   const { student: studentCode, courseId, answers } = req.body;
+    reloadData();
   // Verificar si ya existe una respuesta de este estudiante para ese curso (solo una encuesta por curso)
   const already = data.surveys.find(resp => resp.student === studentCode && resp.courseId === courseId);
   if (already) {
@@ -41,7 +97,7 @@ app.post('/api/submit', (req, res) => {
   data.surveys.push({ student: studentCode, courseId, answers });
   // Guardar en archivo JSON para persistencia
   try {
-    fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
   } catch (err) {
     console.error('Error al guardar datos:', err);
   }

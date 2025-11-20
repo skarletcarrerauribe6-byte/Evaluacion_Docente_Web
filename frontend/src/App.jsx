@@ -10,27 +10,31 @@ function App() {
   const [page, setPage] = useState('login');
 
   const headers = {
-  login: {
-    title: 'Evaluación Docente - FIIS UNAC',
-    subtitle: 'Accede con tu código de matrícula o DNI'
-  },
-  courses: {
-    title: 'Evaluación Docente - FIIS UNAC',
-    subtitle: 'Accede con tu código de matrícula o DNI'
-  },
-  survey: {
-    title: 'Encuesta de Evaluación Docente',
-    subtitle: 'Expresa tu opinión sobre el desempeño académico y pedagógico'
-  },
-  report: {
-    title: 'Reporte de Evaluación Docente',
-    subtitle: 'Resultados agregados - Datos anónimos'
-  }
-};
+    login: {
+      title: 'Evaluación Docente - FIIS UNAC',
+      subtitle: 'Accede con tus credenciales asignadas según tu rol'
+    },
+    courses: {
+      title: 'Evaluación Docente - FIIS UNAC',
+      subtitle: 'Completa la encuesta de cada curso inscrito'
+    },
+    survey: {
+      title: 'Encuesta de Evaluación Docente',
+      subtitle: 'Expresa tu opinión sobre el desempeño académico y pedagógico'
+    },
+    report: {
+      title: 'Reporte de Evaluación Docente',
+      subtitle: 'Resultados agregados - Datos anónimos'
+    }
+  };
 
-  const handleLogin = (studentData) => {
-    setUser(studentData);
-    setPage('courses');
+  const handleLogin = (userData) => {
+    setUser(userData);
+    if (userData?.role === 'student') {
+      setPage('courses');
+    } else {
+      setPage('report');
+    }
   };
 
   const handleLogout = () => {
@@ -101,7 +105,19 @@ function App() {
           />
         )}
       {page === 'report' &&
-        renderLayout('report', <Reports onBack={() => setPage(user ? 'courses' : 'login')} />)}
+        renderLayout(
+          'report',
+          <Reports
+            onBack={() => {
+              if (user?.role === 'student') {
+                setPage('courses');
+              } else {
+                setUser(null);
+                setPage('login');
+              }
+            }}
+          />
+        )}
     </>
   );
 }
