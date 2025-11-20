@@ -22,6 +22,15 @@ const reloadData = () => {
   }
 };
 
+const isWithinEvaluationPeriod = (period) => {
+  if (!period || !period.startDate || !period.endDate) return false;
+  const today = new Date();
+  const start = new Date(period.startDate);
+  const end = new Date(period.endDate);
+  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return false;
+  return today >= start && today <= end;
+};
+
 // Ruta de autenticación (login) para estudiantes, profesores y administradores
 app.post('/api/login', (req, res) => {
   const { role = 'student', code, dni, password } = req.body;
@@ -30,9 +39,12 @@ app.post('/api/login', (req, res) => {
   reloadData();
 
   if (role === 'student') {
-    const student = data.students.find(s => s.code === code && s.password === password);
+    const student = data.students.find(s => s.code === code);
     if (!student) {
-      return res.status(401).json({ success: false, message: 'Código o contraseña incorrecto' });
+      return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    if (student.password !== password) {
+      return res.status(401).json({ success: false, message: 'DNI incorrecto' });
     }
 
     // Construir objeto de respuesta sin datos sensibles y con estado de encuestas por curso
@@ -51,9 +63,12 @@ app.post('/api/login', (req, res) => {
   }
 
   if (role === 'professor') {
-    const professor = data.professors.find(p => p.dni === dni && p.password === password);
+    const professor = data.professors.find(p => p.dni === dni);
     if (!professor) {
-      return res.status(401).json({ success: false, message: 'DNI o contraseña incorrecto' });
+      return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    if (professor.password !== password) {
+      return res.status(401).json({ success: false, message: 'DNI incorrecto' });
     }
 
     const professorData = {
@@ -67,9 +82,12 @@ app.post('/api/login', (req, res) => {
   }
 
   if (role === 'admin') {
-    const admin = data.admins?.find(a => a.dni === dni && a.password === password);
+    const admin = data.admins?.find(a => a.dni === dni);
     if (!admin) {
-      return res.status(401).json({ success: false, message: 'DNI o contraseña incorrecto' });
+      return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    if (admin.password !== password) {
+      return res.status(401).json({ success: false, message: 'DNI incorrecto' });
     }
 
     const adminData = {
@@ -84,10 +102,53 @@ app.post('/api/login', (req, res) => {
   return res.status(400).json({ success: false, message: 'Rol no soportado' });
 });
 
+// Obtener el periodo de evaluación activo
+app.get('/api/period', (req, res) => {
+  reloadData();
+  const evaluationPeriod = data.evaluationPeriod || { isActive: false };
+  return res.json(evaluationPeriod);
+});
+
+// Actualizar el periodo de evaluación (solo admin simulado)
+app.post('/api/period', (req, res) => {
+  const { role, startDate, endDate, isActive } = req.body;
+  reloadData();
+
+  if (role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'No autorizado' });
+  }
+
+  const updatedPeriod = {
+    startDate,
+    endDate,
+    isActive: Boolean(isActive)
+  };
+
+  data.evaluationPeriod = updatedPeriod;
+
+  try {
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.error('Error al guardar el periodo de evaluación', err);
+    return res.status(500).json({ success: false, message: 'No se pudo actualizar el periodo' });
+  }
+
+  return res.json({ success: true, evaluationPeriod: updatedPeriod });
+});
+
 // Ruta para envío de respuestas de una encuesta docente
 app.post('/api/submit', (req, res) => {
   const { student: studentCode, courseId, answers } = req.body;
   reloadData();
+
+  const evaluationPeriod = data.evaluationPeriod;
+  if (!evaluationPeriod || evaluationPeriod.isActive === false) {
+    return res.status(403).json({ success: false, message: 'El periodo de evaluación está cerrado' });
+  }
+
+  if (!isWithinEvaluationPeriod(evaluationPeriod)) {
+    return res.status(403).json({ success: false, message: 'El periodo de evaluación está cerrado' });
+  }
 
   if (!studentCode || !courseId || !answers) {
     return res.status(400).json({ success: false, message: 'Faltan datos de encuesta.' });
@@ -133,17 +194,18 @@ app.get('/api/reports', (req, res) => {
   });
   // Agregar datos de cada respuesta registrada
   data.surveys.forEach(resp => {
-    const cid = resp.courseId;
+    const { courseId: cid, answers } = resp;
     if (!summary[cid]) {
       summary[cid] = { count: 0, sum_p1: 0, sum_p2: 0, sum_p3: 0, sum_p4: 0, comments: [] };
     }
     summary[cid].count += 1;
-    summary[cid].sum_p1 += Number(resp.answers.p1) || 0;
-    summary[cid].sum_p2 += Number(resp.answers.p2) || 0;
-    summary[cid].sum_p3 += Number(resp.answers.p3) || 0;
-    summary[cid].sum_p4 += Number(resp.answers.p4) || 0;
-    if (resp.answers.comment && resp.answers.comment.trim() !== "") {
-      summary[cid].comments.push(resp.answers.comment.trim());
+    summary[cid].sum_p1 += Number(answers.p1) || 0;
+    summary[cid].sum_p2 += Number(answers.p2) || 0;
+    summary[cid].sum_p3 += Number(answers.p3) || 0;
+    summary[cid].sum_p4 += Number(answers.p4) || 0;
+    const sanitizedComment = typeof answers.comment === 'string' ? answers.comment.trim() : '';
+    if (sanitizedComment !== '') {
+      summary[cid].comments.push(sanitizedComment);
     }
   });
   // Calcular promedios por curso y preparar la respuesta de reporte

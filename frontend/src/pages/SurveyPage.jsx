@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../api';
+import api, { getEvaluationPeriod } from '../api';
 
 export default function SurveyPage() {
   const { courseId } = useParams();
@@ -10,6 +10,8 @@ export default function SurveyPage() {
   const [sending, setSending] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [period, setPeriod] = useState(null);
+  const [periodWarning, setPeriodWarning] = useState('');
 
   useEffect(() => {
     const loadSurvey = async () => {
@@ -25,6 +27,30 @@ export default function SurveyPage() {
     loadSurvey();
   }, [courseId]);
 
+  useEffect(() => {
+    const loadPeriod = async () => {
+      try {
+        const periodData = await getEvaluationPeriod();
+        setPeriod(periodData);
+      } catch (err) {
+        setPeriodWarning('No se pudo verificar el periodo de evaluación.');
+      }
+    };
+
+    loadPeriod();
+  }, []);
+
+  const isPeriodActive = () => {
+    if (!period) return false;
+    if (!period.isActive) return false;
+    if (!period.startDate || !period.endDate) return false;
+    const today = new Date();
+    const start = new Date(period.startDate);
+    const end = new Date(period.endDate);
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return false;
+    return today >= start && today <= end;
+  };
+
   const handleChangeScore = (questionId, score) => {
     setScores(prev => ({ ...prev, [questionId]: score }));
   };
@@ -35,6 +61,12 @@ export default function SurveyPage() {
     setMessage('');
 
     if (!data) return;
+
+    const periodValid = isPeriodActive();
+    if (!periodValid) {
+      setError('El periodo de evaluación no está activo.');
+      return;
+    }
 
     const unanswered = data.questions.filter(q => !scores[q.id]);
     if (unanswered.length > 0) {
@@ -67,12 +99,21 @@ export default function SurveyPage() {
     ? `Periodo activo: ${data.period.start_date} al ${data.period.end_date}`
     : 'Sin periodo activo';
 
+  const periodValid = isPeriodActive();
+
   return (
     <div className="page">
       <h2>Encuesta de Evaluación Docente</h2>
       <p className="subtitle">Expresa tu opinión sobre el desempeño académico y pedagógico.</p>
       <p className="helper-text">{periodText}</p>
 
+      {!periodValid && (
+        <div className="error-message">
+          El periodo de evaluación no está activo actualmente
+        </div>
+      )}
+
+      {periodWarning && <div className="error-message">{periodWarning}</div>}
       {data.reason && <div className="info">{data.reason}</div>}
       {message && <div className="success">{message}</div>}
       {error && <div className="error">{error}</div>}
@@ -107,7 +148,7 @@ export default function SurveyPage() {
           </div>
         ))}
         {data.canAnswer && (
-          <button className="btn primary" type="submit" disabled={sending}>
+          <button className="btn primary" type="submit" disabled={sending || !periodValid}>
             {sending ? 'Enviando...' : 'Enviar Encuesta'}
           </button>
         )}

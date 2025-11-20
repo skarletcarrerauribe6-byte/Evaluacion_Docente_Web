@@ -444,5 +444,10 @@
       "dni": "55443322",
       "password": "calidad123"
     }
-  ]
+  ],
+  "evaluationPeriod": {
+    "startDate": "2025-11-01",
+    "endDate": "2025-11-07",
+    "isActive": true
+  }
 }

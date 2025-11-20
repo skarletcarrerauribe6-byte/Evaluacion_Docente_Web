@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { API_BASE_URL } from '../api';
+import React, { useEffect, useState } from 'react';
+import { API_BASE_URL, getEvaluationPeriod } from '../api';
 
 function SurveyForm({ course, user, onSubmitSurvey, onClose }) {
   const [p1, setP1] = useState(0);
@@ -9,16 +9,51 @@ function SurveyForm({ course, user, onSubmitSurvey, onClose }) {
   const [comment, setComment] = useState('');
   const [error, setError] = useState('');
   const [successOpen, setSuccessOpen] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [period, setPeriod] = useState(null);
+  const [periodError, setPeriodError] = useState('');
+  const [periodLoading, setPeriodLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPeriod = async () => {
+      try {
+        const periodResponse = await getEvaluationPeriod();
+        setPeriod(periodResponse);
+      } catch (err) {
+        setPeriodError('No se pudo verificar el periodo de evaluación.');
+      } finally {
+        setPeriodLoading(false);
+      }
+    };
+
+    loadPeriod();
+  }, []);
+
+  const isPeriodValid = () => {
+    if (!period) return false;
+    if (!period.isActive) return false;
+    if (!period.startDate || !period.endDate) return false;
+    const today = new Date();
+    const start = new Date(period.startDate);
+    const end = new Date(period.endDate);
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return false;
+    return today >= start && today <= end;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isPeriodValid()) {
+      setError('El periodo de evaluación no está activo.');
+      return;
+    }
     if (p1 === 0 || p2 === 0 || p3 === 0 || p4 === 0) {
       setError('Faltan campos obligatorios en encuesta.');
       return;
     }
     setError('');
+    setSending(true);
     try {
-        const res = await fetch(`${API_BASE_URL}/api/submit`, {
+      const res = await fetch(`${API_BASE_URL}/api/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -37,8 +72,13 @@ function SurveyForm({ course, user, onSubmitSurvey, onClose }) {
     } catch (err) {
       console.error(err);
       setError('Error de conexión con el servidor');
+    } finally {
+      setSending(false);
     }
   };
+
+  const periodIsValid = isPeriodValid();
+  const showPeriodWarning = !periodLoading && !periodIsValid;
 
   return (
     <>
@@ -46,7 +86,17 @@ function SurveyForm({ course, user, onSubmitSurvey, onClose }) {
         <h2 className="section-title">Encuesta de Evaluación Docente</h2>
         <p className="subtitle">Evalúa el curso de {course.name} - {course.teacher}</p>
 
-        {error && <div className="error" style={{ marginBottom: '10px' }}>{error}</div>}
+        {showPeriodWarning && (
+          <div className="error-message" style={{ marginBottom: '10px' }}>
+            El periodo de evaluación no está activo actualmente
+          </div>
+        )}
+
+        {periodError && (
+          <div className="error-message" style={{ marginBottom: '10px' }}>{periodError}</div>
+        )}
+
+        {error && <div className="error-message" style={{ marginBottom: '10px' }}>{error}</div>}
 
         <form onSubmit={handleSubmit} className="form">
           <div className="question-card">
@@ -145,7 +195,13 @@ function SurveyForm({ course, user, onSubmitSurvey, onClose }) {
             </label>
           </div>
 
-          <button type="submit" className="btn primary">Enviar Encuesta</button>
+          <button
+            type="submit"
+            className="btn primary"
+            disabled={!periodIsValid || sending}
+          >
+            {sending ? 'Enviando...' : 'Enviar Encuesta'}
+          </button>
           <p className="helper-text">Tus respuestas son anónimas. Gracias por tu honestidad.</p>
         </form>
       </div>

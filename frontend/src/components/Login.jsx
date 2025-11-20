@@ -18,11 +18,17 @@ function Login({ onLogin }) {
         body: JSON.stringify({ role, code, dni, password })
       });
       const data = await res.json();
-      if (data.success) {
+      if (res.ok && data.success) {
         onLogin(data.user);
       } else {
-        // Credenciales inválidas o error de autenticación
-        setError(data.message || 'Credenciales inválidas');
+        const backendMessage = data?.message;
+        if (res.status === 404) {
+          setError(backendMessage || 'Usuario no encontrado');
+        } else if (res.status === 401) {
+          setError(backendMessage || 'DNI incorrecto');
+        } else {
+          setError(backendMessage || 'Credenciales inválidas');
+        }
       }
     } catch (err) {
       console.error(err);
@@ -30,8 +36,8 @@ function Login({ onLogin }) {
     }
   };
 
-    const passwordPlaceholder = {
-    student: 'Ingresa tu contraseña',
+  const passwordPlaceholder = {
+    student: 'Ingresa tu DNI',
     professor: 'Ingrese su contraseña',
     admin: 'Contraseña segura asignada'
   };
@@ -91,7 +97,7 @@ function Login({ onLogin }) {
             required
           />
         </label>
-        {error && <div className="error">{error}</div>}
+        {error && <div className="error-message">{error}</div>}
         <button type="submit" className="btn primary">
           Iniciar sesión
         </button>
