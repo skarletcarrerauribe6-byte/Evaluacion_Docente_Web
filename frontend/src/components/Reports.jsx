@@ -11,38 +11,37 @@ function Reports({ onBack }) {
       .catch(err => console.error(err));
   }, []);
 
-  if (data.length === 0) {
-    return (
-      <div>
-        <h3>Reportes de Evaluaciones</h3>
-        <p>No hay evaluaciones registradas aún.</p>
-        <button onClick={onBack}>Volver</button>
-      </div>
-    );
-  }
-
   return (
-    <div className="page-section">
-      <h3>Reportes de Evaluaciones</h3>
-      {data.map(report => (
-        <div key={report.courseId} style={{ marginBottom: '1em', padding: '0.5em', border: '1px solid #ccc' }}>
-          <h4>{report.courseName} – Prof. {report.teacher}</h4>
-          <p>Respuestas recibidas: {report.count}</p>
-          <p>Promedio Pregunta 1: {report.avg_p1} / 5</p>
-          <p>Promedio Pregunta 2: {report.avg_p2} / 5</p>
-          {report.comments.length > 0 ? (
-            <div>
-              <p>Comentarios:</p>
-              <ul>
-                {report.comments.map((c, idx) => <li key={idx}>{c}</li>)}
-              </ul>
+    <div className="content-card">
+      <h2 className="section-title">Reporte de Evaluación Docente</h2>
+      <p className="subtitle">Resultados agregados - Datos anónimos.</p>
+
+      {data.length === 0 && <p className="helper-text">No hay evaluaciones registradas aún.</p>}
+
+      <div className="reports-grid">
+        {data.map(report => (
+          <div key={report.courseId} className="report-card">
+            <div className="report-title">Curso: {report.courseName}</div>
+            <div className="report-subtitle">Promedio General: {report.avg_general || '-'} / 5</div>
+            <div className="report-item">
+              <span>Dominio del Tema</span>
+              <span>{report.avg_p1}</span>    
             </div>
-          ) : (
-            <p>Comentarios: (sin comentarios)</p>
-          )}
-        </div>
-      ))}
-      <button onClick={onBack}>Volver</button>
+            <div className="report-item">
+              <span>Claridad al Explicar</span>
+              <span>{report.avg_p2}</span>
+            </div>
+            <div className="report-item">
+              <span>Motivación al Estudiante</span>
+              <span>{report.avg_p3 || '-'}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button className="btn primary" style={{ width: '100%', marginTop: '12px' }} onClick={onBack}>
+        Volver
+      </button>
     </div>
   );
 }

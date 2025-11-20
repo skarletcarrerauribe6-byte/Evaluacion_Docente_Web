@@ -29,34 +29,38 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div>
-      <h2>Inicio de Sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Código de estudiante:
-            <input 
-              type="text" 
-              value={code} 
-              onChange={(e) => setCode(e.target.value)} 
-              required 
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            DNI:
-            <input 
-              type="password" 
-              value={dni} 
-              onChange={(e) => setDni(e.target.value)} 
-              required 
-            />
-          </label>
-        </div>
-        <button type="submit">Ingresar</button>
+     <div className="content-card">
+      <form onSubmit={handleSubmit} className="form">
+        <label>
+          Código de matrícula / DNI
+          <input
+            className="input"
+            type="text"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            placeholder="Ej: 2125000000 o 70000000"
+            required
+          />
+        </label>
+        <label>
+          Contraseña
+          <input
+            className="input"
+            type="password"
+            value={dni}
+            onChange={(e) => setDni(e.target.value)}
+            placeholder="Ingresa tu contraseña"
+            required
+          />
+        </label>
+        {error && <div className="error">{error}</div>}
+        <button type="submit" className="btn primary">
+          Iniciar sesión
+        </button>
+        <p className="helper-text">
+          ¿Olvidaste tu contraseña? <span className="link-text">Contacta al área de sistemas.</span>
+        </p>
       </form>
-      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }

@@ -1,46 +1,37 @@
 import React from 'react';
 
-function CourseList({ user, onLogout, onSelectCourse, onViewReports }) {
+function CourseList({ user, onLogout, onStartSurvey, onViewReports }) { 
   return (
-    <div>
-      <h1>Bienvenido, {user.name}</h1>
+    <div className="content-card">
+      <div className="section-header">
+        <h2 className="section-title">Mis cursos</h2>
+        <p className="subtitle">Selecciona un curso para responder la encuesta.</p>
+      </div>
 
-      <div className="page-section">
-        <h2>Tus Cursos Inscritos</h2>
+      <div className="courses-list">
+        {user.courses.map((course, index) => (
+          <div key={course.id} className="course-card">
+            <div className="course-number">{index + 1}</div>
+            <div className="course-info">
+              <h3>{course.name}</h3>
+              <p className="course-meta">{course.code}</p>
+              <p className="course-meta">{course.teacher}</p>
+              {course.responded && <span className="status-pill">Encuesta enviada</span>}
+            </div>
+            <button className="btn primary" onClick={() => onStartSurvey(course)}>
+              Responder
+            </button>
+          </div>
+        ))}
+      </div>  
 
-        <div className="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Curso</th>
-                <th>Docente</th>
-                <th>Estado</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              {user.courses.map((course) => (
-                <tr key={course.id}>
-                  <td>{course.name}</td>
-                  <td>{course.teacher}</td>
-                  <td>{course.status}</td>
-                  <td>
-                    <button onClick={() => onSelectCourse(course)}>
-                      Responder
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="actions-row">
-          <button className="btn-secondary" onClick={onLogout}>
-            Cerrar Sesión
-          </button>
-          <button onClick={onViewReports}>Ver Reportes</button>
-        </div>
+    <div className="action-stack">
+        <button className="btn primary" style={{ width: '100%' }} onClick={onViewReports}>
+          Ver Reportes
+        </button>
+        <button className="btn ghost" style={{ width: '100%' }} onClick={onLogout}>
+          Cerrar sesión
+        </button>
       </div>
     </div>
   );
