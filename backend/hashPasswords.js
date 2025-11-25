@@ -21,6 +21,12 @@ async function encryptPasswords() {
     admin.password = hashed;
   }
 
+  // Encriptar passwords de Alumnos
+  for (const students of data.students) {
+    const hashed = await bcrypt.hash(students.password, saltRounds);
+    students.password = hashed;
+  }
+
   // Guardar archivo actualizado
   fs.writeFileSync("./data_hashed.json", JSON.stringify(data, null, 2));
 
